@@ -7,12 +7,9 @@ starttime = datetime.datetime.now()
 def ntlm_attack(filestring):
     input2 = raw_input("input hash to crack: ")
 
-    #dict = ["test","fuck","password","cracker"]
     with open(filestring) as file: # Use file to refer to the file object
-        #data = file.readlines()
-        for i in file.readlines():    
-            i = i.rstrip("\n")
-            #print(i.replace(" ", ""))
+        for i in enumerate(file):    
+            i = i[1].rstrip("\n")
             
             try:
                 passhash = hashlib.new('md4', i.encode('utf-16le')).digest()
